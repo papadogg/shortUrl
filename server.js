@@ -38,7 +38,7 @@ app.get('/new/*', function(req,res){
             if(!shorty){
                 shortUrl.save(function (err){
                     if (err) {
-                        return res.send("errro");
+                        return res.send("Wrong url format, make sure you have a valid protocol and real site");
                     } 
                     doc.count++;
                 doc.save();
