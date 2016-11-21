@@ -67,7 +67,7 @@ app.get('/:id', function(req,res){
             
               res.redirect(shorty.url);
          } else {
-             res.json("No such route");
+             res.send("No such route");
          }
      });
    
