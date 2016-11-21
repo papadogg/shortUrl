@@ -38,18 +38,18 @@ app.get('/new/*', function(req,res){
             if(!shorty){
                 shortUrl.save(function (err){
                     if (err) {
-                        return res.send("Wrong url format, make sure you have a valid protocol and real site");
+                        return res.json("Wrong url format, make sure you have a valid protocol and real site");
                     } 
                     doc.count++;
                 doc.save();
                     var str = `original_url: ${url} , short_url:"https://morning-beyond-54431.herokuapp.com/${count}`;
-                res.send(str);
+                res.json(str);
                 });
                 
             }
             else {
                  var str = `original_url: ${url} , short_url:"https://morning-beyond-54431.herokuapp.com/${shorty.id}`;
-                res.send(str);
+                res.json(str);
             }
         });
         
@@ -67,7 +67,7 @@ app.get('/:id', function(req,res){
             
               res.redirect(shorty.url);
          } else {
-             res.send("No such route");
+             res.json("No such route");
          }
      });
    
